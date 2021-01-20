@@ -1,0 +1,8 @@
+DEFINE CHANNEL(TLSPRQM1.SVRCONN) +
+	CHLTYPE(CLNTCONN) + 
+	TRPTYPE(TCP) +
+	CONNAME('ibm-mqadvanced-server-tls-build-da-mq.apps-crc.testing(443)') +
+	CERTLABL('ibmmqarnold') +
+	QMNAME('TLSPRQM1') +
+    SSLCIPH(ANY_TLS12) +
+	REPLACE

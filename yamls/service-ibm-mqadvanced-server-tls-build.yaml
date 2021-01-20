@@ -1,0 +1,78 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  selfLink: /api/v1/namespaces/da-mq/services/ibm-mqadvanced-server-tls-build
+  resourceVersion: '12512303'
+  name: ibm-mqadvanced-server-tls-build
+  uid: ae7cc3a5-124a-4542-bada-5c8a4d98feb2
+  creationTimestamp: '2021-01-19T23:34:13Z'
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: v1
+      time: '2021-01-19T23:34:13Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:ports':
+            .: {}
+            'k:{"port":1414,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+            'k:{"port":9157,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+            'k:{"port":9443,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:deployment': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+  namespace: da-mq
+  labels:
+    app: ibm-mqadvanced-server-tls-build
+    app.kubernetes.io/component: ibm-mqadvanced-server-tls-build
+    app.kubernetes.io/instance: ibm-mqadvanced-server-tls-build
+spec:
+  ports:
+    - name: 1414-tcp
+      protocol: TCP
+      port: 1414
+      targetPort: 1414
+    - name: 9157-tcp
+      protocol: TCP
+      port: 9157
+      targetPort: 9157
+    - name: 9443-tcp
+      protocol: TCP
+      port: 9443
+      targetPort: 9443
+  selector:
+    deployment: ibm-mqadvanced-server-tls-build
+  clusterIP: 172.25.13.213
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}

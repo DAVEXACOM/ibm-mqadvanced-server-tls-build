@@ -1,0 +1,64 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: tls-tlsprqm1p
+  namespace: da-mq
+  selfLink: /apis/route.openshift.io/v1/namespaces/da-mq/routes/tls-tlsprqm1p
+  uid: 51aa759d-801b-4146-a522-0be100588c9a
+  resourceVersion: '823479'
+  creationTimestamp: '2021-01-08T06:18:58Z'
+  labels:
+    app: ibm-mqadvanced-server-tls-build
+  managedFields:
+    - manager: kubectl-create
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2021-01-08T06:18:58Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:host': {}
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:tls':
+            .: {}
+            'f:termination': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2021-01-08T06:18:58Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+spec:
+  host: tlsprqm12e-svrconn.chl.mq.ibm.com
+  to:
+    kind: Service
+    name: ibm-mqadvanced-server-tls-build
+    weight: 100
+  port:
+    targetPort: 1414-tcp
+  tls:
+    termination: passthrough
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: tlsprqm12e-svrconn.chl.mq.ibm.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2021-01-08T06:18:58Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: apps-crc.testing

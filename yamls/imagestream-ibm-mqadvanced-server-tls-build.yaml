@@ -1,0 +1,52 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewBuild
+  selfLink: >-
+    /apis/image.openshift.io/v1/namespaces/da-mq/imagestreams/ibm-mqadvanced-server-tls-build
+  resourceVersion: '12473332'
+  name: ibm-mqadvanced-server-tls-build
+  uid: a1643840-ac93-472d-902f-b1028290a558
+  creationTimestamp: '2021-01-08T06:01:29Z'
+  generation: 1
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: image.openshift.io/v1
+      time: '2021-01-08T06:01:29Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:build': {}
+  namespace: da-mq
+  labels:
+    build: ibm-mqadvanced-server-tls-build
+spec:
+  lookupPolicy:
+    local: false
+status:
+  dockerImageRepository: >-
+    image-registry.openshift-image-registry.svc:5000/da-mq/ibm-mqadvanced-server-tls-build
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps-crc.testing/da-mq/ibm-mqadvanced-server-tls-build
+  tags:
+    - tag: latest
+      items:
+        - created: '2021-01-19T23:05:40Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/da-mq/ibm-mqadvanced-server-tls-build@sha256:1b63060b191b7096a7006c85aa199422a64efc4e42aba474b078aa74d890a506
+          image: >-
+            sha256:1b63060b191b7096a7006c85aa199422a64efc4e42aba474b078aa74d890a506
+          generation: 1
+        - created: '2021-01-08T06:06:19Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/da-mq/ibm-mqadvanced-server-tls-build@sha256:70fa2fe9d4600e6034d6e8813f87233af2691ab4485d469ee882aba9948e97d6
+          image: >-
+            sha256:70fa2fe9d4600e6034d6e8813f87233af2691ab4485d469ee882aba9948e97d6
+          generation: 1

@@ -1,0 +1,65 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/host.generated: 'true'
+  selfLink: >-
+    /apis/route.openshift.io/v1/namespaces/da-mq/routes/ibm-mqadvanced-server-tls-build
+  resourceVersion: '12513283'
+  name: ibm-mqadvanced-server-tls-build
+  uid: 353ce7c0-576b-4175-920b-3b2d5521f34e
+  creationTimestamp: '2021-01-19T23:34:53Z'
+  managedFields:
+    - manager: kubectl-expose
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2021-01-19T23:34:53Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2021-01-19T23:34:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+  namespace: da-mq
+  labels:
+    app: ibm-mqadvanced-server-tls-build
+    app.kubernetes.io/component: ibm-mqadvanced-server-tls-build
+    app.kubernetes.io/instance: ibm-mqadvanced-server-tls-build
+spec:
+  host: ibm-mqadvanced-server-tls-build-da-mq.apps-crc.testing
+  to:
+    kind: Service
+    name: ibm-mqadvanced-server-tls-build
+    weight: 100
+  port:
+    targetPort: 1414-tcp
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: ibm-mqadvanced-server-tls-build-da-mq.apps-crc.testing
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2021-01-19T23:34:54Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: apps-crc.testing

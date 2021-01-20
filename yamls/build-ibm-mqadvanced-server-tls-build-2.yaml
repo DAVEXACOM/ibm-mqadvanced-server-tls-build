@@ -1,0 +1,123 @@
+﻿kind: Build
+apiVersion: build.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/build-config.name: ibm-mqadvanced-server-tls-build
+    openshift.io/build.number: '2'
+    openshift.io/build.pod-name: ibm-mqadvanced-server-tls-build-2-build
+  selfLink: >-
+    /apis/build.openshift.io/v1/namespaces/da-mq/builds/ibm-mqadvanced-server-tls-build-2
+  resourceVersion: '12473357'
+  name: ibm-mqadvanced-server-tls-build-2
+  uid: 48e72a1c-be01-4a15-9bc4-cbbd2a7335df
+  creationTimestamp: '2021-01-19T22:20:18Z'
+  namespace: da-mq
+  ownerReferences:
+    - apiVersion: build.openshift.io/v1
+      kind: BuildConfig
+      name: ibm-mqadvanced-server-tls-build
+      uid: d2ceb29a-d5a0-4809-82d0-41b76045e670
+      controller: true
+  labels:
+    build: ibm-mqadvanced-server-tls-build
+    buildconfig: ibm-mqadvanced-server-tls-build
+    openshift.io/build-config.name: ibm-mqadvanced-server-tls-build
+    openshift.io/build.start-policy: Serial
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'ibm-mqadvanced-server-tls-build:latest'
+    pushSecret:
+      name: builder-dockercfg-wz264
+  resources: {}
+  triggeredBy:
+    - message: Manually triggered
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: >-
+          davexacom/ibm-mqadvanced-server-integration@sha256:0cd8142e68ae76a84b06540fd93caf9f964045dbd35c6d0c7efb309e29f2bbb0
+  postCommit: {}
+  serviceAccount: builder
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/DAVEXACOM/ibm-mqadvanced-server-tls-build.git'
+  revision:
+    type: Git
+    git:
+      commit: 3d7e4762262c4e04d2f5ff3f015ba37e84b58212
+      author:
+        name: DAVID ARNOLD
+        email: davearno@au1.ibm.com
+      committer:
+        name: DAVID ARNOLD
+        email: davearno@au1.ibm.com
+      message: deal with the.rdb - remove then replace - replace push
+status:
+  output:
+    to:
+      imageDigest: 'sha256:1b63060b191b7096a7006c85aa199422a64efc4e42aba474b078aa74d890a506'
+  config:
+    kind: BuildConfig
+    namespace: da-mq
+    name: ibm-mqadvanced-server-tls-build
+  outputDockerImageReference: >-
+    image-registry.openshift-image-registry.svc:5000/da-mq/ibm-mqadvanced-server-tls-build:latest
+  duration: 2723000000000
+  startTimestamp: '2021-01-19T22:20:19Z'
+  stages:
+    - name: FetchInputs
+      startTime: '2021-01-19T22:21:46Z'
+      durationMilliseconds: 1195202
+      steps:
+        - name: FetchGitSource
+          startTime: '2021-01-19T22:21:46Z'
+          durationMilliseconds: 14656
+        - name: FetchGitSource
+          startTime: '2021-01-19T22:41:12Z'
+          durationMilliseconds: 29140
+    - name: PullImages
+      startTime: '2021-01-19T22:46:00Z'
+      durationMilliseconds: 1147438
+      steps:
+        - name: PullBaseImage
+          startTime: '2021-01-19T22:46:00Z'
+          durationMilliseconds: 1147438
+    - name: Build
+      startTime: '2021-01-19T23:05:07Z'
+      durationMilliseconds: 28474
+      steps:
+        - name: DockerBuild
+          startTime: '2021-01-19T23:05:07Z'
+          durationMilliseconds: 28474
+    - name: PushImage
+      startTime: '2021-01-19T23:05:36Z'
+      durationMilliseconds: 4647
+      steps:
+        - name: PushDockerImage
+          startTime: '2021-01-19T23:05:36Z'
+          durationMilliseconds: 4647
+  conditions:
+    - type: New
+      status: 'False'
+      lastUpdateTime: '2021-01-19T22:20:18Z'
+      lastTransitionTime: '2021-01-19T22:20:18Z'
+    - type: Pending
+      status: 'False'
+      lastUpdateTime: '2021-01-19T22:21:34Z'
+      lastTransitionTime: '2021-01-19T22:21:34Z'
+    - type: Running
+      status: 'False'
+      lastUpdateTime: '2021-01-19T23:05:42Z'
+      lastTransitionTime: '2021-01-19T23:05:42Z'
+    - type: Complete
+      status: 'True'
+      lastUpdateTime: '2021-01-19T23:05:42Z'
+      lastTransitionTime: '2021-01-19T23:05:42Z'
+  completionTimestamp: '2021-01-19T23:05:42Z'
+  phase: Complete
